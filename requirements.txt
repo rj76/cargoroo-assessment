@@ -8,9 +8,8 @@ uritemplate
 djangorestframework-gis
 
 factory_boy==2.6.0
-
+Faker
 flake8==3.9.2
 pytest
 pytest-django
-pytest-flakes
 pytest-flake8
