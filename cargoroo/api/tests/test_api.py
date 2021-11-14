@@ -13,4 +13,5 @@ class TestAPI:
         response = client.get(reverse('fleet-list'))
 
         assert response.status_code == status.HTTP_200_OK
+        # import ipdb;ipdb.set_trace()
         assert response.data['count'] == 1

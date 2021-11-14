@@ -1,6 +1,6 @@
-from factory import fuzzy, django
+from factory import fuzzy, django, SubFactory
 
-from api.models import Fleet
+from api.models import Fleet, Bike
 
 
 class FleetFactory(django.DjangoModelFactory):
@@ -9,3 +9,13 @@ class FleetFactory(django.DjangoModelFactory):
 
     id = fuzzy.FuzzyText(length=10)
     name = fuzzy.FuzzyText(length=100)
+
+
+class BikeFactory(django.DjangoModelFactory):
+    class Meta:
+        model = Bike
+
+    id = fuzzy.FuzzyText(length=10)
+    fleet = SubFactory(FleetFactory)
+    name = fuzzy.FuzzyText(length=100)
+    status = fuzzy.FuzzyChoice([o[0] for o in Bike.STATUS_OPTIONS])

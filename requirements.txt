@@ -1,6 +1,7 @@
 Django
 django-debug-toolbar
 djangorestframework
+django-extensions
 psycopg2
 pyyaml
 uritemplate

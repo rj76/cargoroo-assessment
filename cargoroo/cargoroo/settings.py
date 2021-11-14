@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'rest_framework_gis',
+    'django_extensions',
 
     'api.apps.ApiConfig',
 ]
@@ -39,7 +40,7 @@ ROOT_URLCONF = 'cargoroo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['{0}/cargoroo/templates'.format(BASE_DIR)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
