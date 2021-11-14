@@ -21,7 +21,10 @@ class BikeDistanceSerializer(GeoFeatureModelSerializer):
     distance = serializers.SerializerMethodField()
 
     def get_distance(self, obj):
-        return obj.distance.km
+        if hasattr(obj, 'distance'):
+            return obj.distance.km
+
+        return 0
 
     class Meta:
         model = models.Bike
