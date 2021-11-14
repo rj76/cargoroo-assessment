@@ -8,7 +8,7 @@ from api.urls import api
 
 urlpatterns = [
     path('api/', include(api.urls)),
-    path('docs/', get_schema_view(
+    path('openapi-schema/', get_schema_view(
         title="Cargoroo API",
         description="API for cargoroo",
         version="1.0.0"
@@ -21,6 +21,4 @@ urlpatterns = [
 
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns = [
-                      path('__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+    urlpatterns = [path('__debug__/', include(debug_toolbar.urls))] + urlpatterns
