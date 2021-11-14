@@ -1,0 +1,15 @@
+Django
+django-debug-toolbar
+djangorestframework
+psycopg2
+pyyaml
+uritemplate
+djangorestframework-gis
+
+factory_boy==2.6.0
+
+flake8==3.9.2
+pytest
+pytest-django
+pytest-flakes
+pytest-flake8
