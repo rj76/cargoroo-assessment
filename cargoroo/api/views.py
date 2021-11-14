@@ -38,7 +38,7 @@ class BikeViewSet(viewsets.ModelViewSet):
     def nearest(self, request, *args, **kwargs):
         ip_point = self._ip2point()
         if ip_point:
-            qs = models.Bike.objects.get_nearest()
+            qs = models.Bike.objects.get_nearest(ip_point)
         else:
             qs = self.get_queryset()
 

@@ -1,4 +1,5 @@
 import pytest
+from django.contrib.gis.geos import Point
 from rest_framework.test import APIClient
 
 from api.batch import Batch
@@ -39,6 +40,15 @@ def bike_json():
 @pytest.fixture
 def bike():
     return factories.BikeFactory()
+
+
+@pytest.fixture
+def bike2():
+    bike = factories.BikeFactory(
+        location=Point(52.36623489297726, 4.918148840679546)
+    )
+
+    return bike
 
 
 @pytest.fixture

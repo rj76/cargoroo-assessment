@@ -44,6 +44,13 @@ class TestBikeAPI:
         assert response.status_code == status.HTTP_200_OK
         assert response.data['count'] == 1
 
+    def test_bike_list_nearest(self, client, bike, bike2):
+        response = client.get(reverse('bike-nearest'))
+
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data['features'][0]['properties']['distance'] < \
+               response.data['features'][1]['properties']['distance']
+
     def test_bike_create(self, client, bike_json, fleet):
         bike_json['fleet'] = fleet.id
         response = client.post(reverse('bike-list'), bike_json, format='json')
