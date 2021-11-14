@@ -15,3 +15,15 @@ class BikeSerializer(GeoFeatureModelSerializer):
         model = models.Bike
         geo_field = 'location'
         fields = ('id', 'fleet', 'status', 'location')
+
+
+class BikeDistanceSerializer(GeoFeatureModelSerializer):
+    distance = serializers.SerializerMethodField()
+
+    def get_distance(self, obj):
+        return obj.distance.km
+
+    class Meta:
+        model = models.Bike
+        geo_field = 'location'
+        fields = ('id', 'fleet', 'status', 'location', 'distance')
