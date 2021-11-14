@@ -1,3 +1,4 @@
+from django.contrib.gis.geos import Point
 from factory import fuzzy, django, SubFactory
 
 from api.models import Fleet, Bike
@@ -17,5 +18,5 @@ class BikeFactory(django.DjangoModelFactory):
 
     id = fuzzy.FuzzyText(length=10)
     fleet = SubFactory(FleetFactory)
-    name = fuzzy.FuzzyText(length=100)
     status = fuzzy.FuzzyChoice([o[0] for o in Bike.STATUS_OPTIONS])
+    location = Point(52.09398461023647, 4.3185523728791075)

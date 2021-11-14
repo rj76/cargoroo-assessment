@@ -30,9 +30,9 @@ def bike_json():
         "fleet": "FL_001",
         "status": "unlocked",
         "location": {
-            "latitude": 52.08466738004343,
-            "longitude": 4.3185523728791075
-        }
+            "type": "Point",
+            "coordinates": [52.08466738004343, 4.3185523728791075],
+        },
     }
 
 
