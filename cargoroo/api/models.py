@@ -1,4 +1,3 @@
-from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models import PointField
 from django.db import models
 
@@ -24,6 +23,3 @@ class Bike(models.Model):
     location = PointField()
 
     objects = managers.BikeManager()
-
-    def set_location(self, lon, lat):
-        self.location = Point(lon, lat)
